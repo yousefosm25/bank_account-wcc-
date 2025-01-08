@@ -4,15 +4,18 @@ class BankAccount:
         print("Welcome to Deposit & Withdrawal Machine")
 
     def account(self):
-        while True:
-            print("\nWelcome to the Bank Account System")
-            bank_pin = int(input("Bank PIN: "))
-            if bank_pin == 1234:
-                self.show_menu()
-                break
-            else:
-                print("Invalid PIN. Please try again.")
-
+        try:
+            while True:
+                print("\nWelcome to the Bank Account System")
+                bank_pin = int(input("Bank PIN: "))
+                if bank_pin == 1234:
+                    self.show_menu()
+                    break
+                else:
+                    print("Invalid PIN. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a numerical value.")
+            self.account()
     def show_menu(self):
         while True:
             print("\nPlease choose an option:")
